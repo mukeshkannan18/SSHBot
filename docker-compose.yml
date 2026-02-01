@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  sshbot:
+    build: .
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - sshbot-logs:/var/log/ssh-bot
+
+volumes:
+  sshbot-logs:
+    driver: local
