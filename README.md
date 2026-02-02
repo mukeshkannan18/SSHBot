@@ -46,3 +46,42 @@ Run this command on your server:
 
 ```bash
 curl -fsSL https://github.com/ItzGlace/SSHBot/raw/refs/heads/main/install.sh | sudo bash
+```
+
+---
+
+## 🐳 Docker Compose
+
+Run `SSHBot` inside a container instead of installing it system-wide. Docker Compose builds the Python environment, keeps the original dependencies, and exposes logs via a named volume.
+
+1. Copy the environment template and add your Telegram bot token:
+
+   ```bash
+   cp .env.example .env
+   # then edit .env and set BOT_TOKEN to your token
+   ```
+
+2. Build the image and start the service:
+
+   ```bash
+   docker compose up -d --build
+   ```
+
+3. Follow the logs while the bot starts:
+
+   ```bash
+   docker compose logs -f sshbot
+   ```
+
+4. Stop and remove containers with:
+
+   ```bash
+   docker compose down
+   ```
+
+### Logs & Persistence
+
+- Logs are written to `/var/log/ssh-bot` inside the container and persisted in the `sshbot-logs` volume declared in `docker-compose.yml`.
+- To inspect the logs from the host, mount a path as shown in the compose file (`volumes` section) or run `docker compose logs -f sshbot`.
+
+Make sure `BOT_TOKEN` is populated in your `.env` file before starting the service — Docker Compose still needs that secret to function.
