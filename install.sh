@@ -13,6 +13,7 @@ RESET="\e[0m"
 line() { echo -e "${CYAN}${BOLD}=========================================${RESET}"; }
 msg()  { echo -e "${BLUE}➜${RESET} $1"; }
 ok()   { echo -e "${GREEN}✔${RESET} $1"; }
+warn() { echo -e "${YELLOW}⚠${RESET} $1"; }
 err()  { echo -e "${RED}✖${RESET} $1"; exit 1; }
 
 # ================= ROOT CHECK =================
@@ -24,15 +25,26 @@ echo -e "${BOLD}        🚀 SSHBot Universal Installer${RESET}"
 line
 echo
 
-# ================= BOT TOKEN =================
-read -rp "$(echo -e ${YELLOW}'🤖 Enter Telegram Bot Token: '${RESET})" BOT_TOKEN
-[[ -z "$BOT_TOKEN" ]] && err "Bot token cannot be empty"
-
 # ================= PATHS =================
 INSTALL_DIR="/opt/sshbot"
 BOT_FILE="$INSTALL_DIR/ssh-bot.py"
 VENV_DIR="$INSTALL_DIR/venv"
-SERVICE_FILE="/etc/systemd/system/ssh-bot.service"
+SERVICE_FILE="/etc/systemd/system/sshbot.service"
+
+# ================= CLEANUP EXISTING BOT =================
+if systemctl list-units --all | grep -q sshbot; then
+    warn "Existing SSHBot installation detected. Removing..."
+    systemctl stop sshbot >/dev/null 2>&1 || true
+    systemctl disable sshbot >/dev/null 2>&1 || true
+    rm -f "$SERVICE_FILE"
+    rm -rf "$INSTALL_DIR"
+    systemctl daemon-reload
+    ok "Old SSHBot removed"
+fi
+
+# ================= BOT TOKEN =================
+read -rp "$(echo -e ${YELLOW}'🤖 Enter Telegram Bot Token: '${RESET})" BOT_TOKEN
+[[ -z "$BOT_TOKEN" ]] && err "Bot token cannot be empty"
 
 # ================= OS / PACKAGE MANAGER =================
 msg "Detecting Linux distribution"
@@ -53,11 +65,13 @@ ok "Package manager detected: $PM"
 msg "Installing system dependencies"
 
 if [[ "$PM" == "apt" ]]; then
-  apt update -y >/dev/null
-  apt install -y python3 python3-venv python3-pip openssh-client curl >/dev/null
+    export DEBIAN_FRONTEND=noninteractive
+    export NEEDRESTART_MODE=a
+    apt update -y >/dev/null
+    apt install -y --no-install-recommends python3 python3-venv python3-pip openssh-client curl >/dev/null
 else
-  $PM install -y epel-release >/dev/null || true
-  $PM install -y python3 python3-pip python3-virtualenv openssh-clients curl >/dev/null
+    $PM install -y epel-release >/dev/null || true
+    $PM install -y python3 python3-pip python3-virtualenv openssh-clients curl >/dev/null
 fi
 
 ok "System packages installed"
@@ -85,6 +99,13 @@ pip install python-telegram-bot==13.15 paramiko pyte >/dev/null
 deactivate
 
 ok "Virtual environment ready"
+
+# ================= FETCH BOT VERSION =================
+msg "Fetching latest bot version"
+
+LATEST_VERSION=$(curl -s https://api.github.com/repos/ItzGlace/SSHBot/commits/main | grep -m1 '"message":' | cut -d '"' -f4)
+[[ -z "$LATEST_VERSION" ]] && LATEST_VERSION="Unknown"
+ok "Latest bot version: $LATEST_VERSION"
 
 # ================= SYSTEMD SERVICE =================
 msg "Creating systemd service"
@@ -124,6 +145,7 @@ if systemctl is-active --quiet sshbot; then
   echo
   line
   echo -e "${GREEN}${BOLD}✅ SSHBot installed and running!${RESET}"
+  echo -e "${YELLOW}🔖 Bot version: ${BOLD}$LATEST_VERSION${RESET}"
   line
 else
   err "SSHBot failed to start — check logs: journalctl -u sshbot -f"
